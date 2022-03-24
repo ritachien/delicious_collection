@@ -1,5 +1,5 @@
 # Delicious Collection
-![demo.gif](https://github.com/ritachien/delicious_collection/blob/main/Demo.gif?raw=true)  
+![demo.gif](https://raw.githubusercontent.com/ritachien/delicious_collection/2edf11300e0f93a4588d3b55d20d6b4b4829bd8f/Demo.gif)  
 <br>
 :sparkles: Display information of your favorite restaurants.  
 
