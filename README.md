@@ -1,0 +1,49 @@
+# Delicious Collection
+![demo.gif](https://github.com/ritachien/delicious_collection/blob/main/Demo.gif?raw=true)  
+<br>
+:sparkles: Display information of your favorite restaurants.  
+
+## Features  
+:star: Shows all restaurants in homepage.  
+:star: Click for further information of each restaurant.  
+:star: Search restaurant by keywords.
+
+
+
+## Getting Started
+### Prerequisites
+:white_check_mark: Be sure that Node.js and npm are installed already.  
+- MacOS ([XCode](https://developer.apple.com/xcode/)、[nvm](https://github.com/nvm-sh/nvm))
+- Windows ([nvm-windows](https://github.com/coreybutler/nvm-windows/releases))
+
+### Installing
+
+:white_check_mark: Clone or download the project to your local machine.  
+```bash
+# folder_name(optional) will create a new folder in your pwd.
+git clone <folder_name> https://github.com/ritachien/delicious_collection.git
+```
+:white_check_mark: Get into your project folder by `Terminal` and run:  
+```bash
+npm install
+```
+:white_check_mark: Run the following command after install finished.  
+```bash
+npm run start
+```
+:white_check_mark: Open browser to the URL if you see following message in console.  
+```bash
+Listening on http://localhost:3000
+```
+:white_check_mark: Stop using the app by `Ctrl + c`  
+
+## Built With
+* Node.js @16.14.2
+* Express.js @4.16.4 - The web framework used
+* express-handlebars @3.0.0 - View engine for Express
+* Bootstrap @5.1.3 - For CSS stylesheet
+* Font-awesome @5.8.1 - Icon used in project
+
+## Authors
+* Alpha Camp - project design.  
+* [**Rita Chien**](https://github.com/ritachien) - project develop.  
