@@ -18,6 +18,9 @@
 
 <!-- restaurant list -->
 <div class="container mt-5">
+  {{#if keyword}}
+  <h5 id="search-hint">共找到 {{ restaurants.length }} 筆符合資料!</h5>
+  {{/if}}
   <div class="row">
     <div class="col-md-10 col-12 mx-auto">
       <div class="card-columns">
