@@ -54,6 +54,12 @@ header {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
+.card:hover {
+  transform: scale(1.1);
+  border-color: #ffc600;
+  box-shadow: 0 0 1rem #ffc600;
+}
+
 .card img{
   height: 180px;
 }
@@ -76,6 +82,13 @@ header {
   text-align: center;
   font-size: 3rem;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#search-hint {
+  margin: 30px 70px;
+  font-weight: 600;
+  font-style: italic;
+  color: grey;
 }
 
 @media screen and (max-width: 992px) {

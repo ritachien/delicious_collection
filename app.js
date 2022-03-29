@@ -17,21 +17,28 @@ app.get('/', (req, res) => {
   res.render('index', { restaurants: list.results })
 })
 
+// show detail info of target restaurant
 app.get('/restaurants/:id', (req, res) => {
   const restaurant = list.results.find(item => item.id.toString() === req.params.id)
   res.render('show', { restaurant })
 })
 
+// show search results
 app.get('/search', (req, res) => {
-  const keyword = req.query.keyword.trim()
-  const searchResults = list.results.filter(item => {
-    const filterRange = item.name + item.category
-    return filterRange.toLowerCase().includes(keyword.toLowerCase())
+  const keywords = req.query.keyword.toLowerCase().trim().split(' ')
+  const searchResults = list.results.filter((item) => {
+    const searchRange = (item.name + item.name_en + item.category + item.location).toLowerCase().trim()
+    return keywords.every(keyword => searchRange.includes(keyword))
   })
-  res.render('index', { restaurants: searchResults, keyword: keyword })
+
+  res.render('index', { restaurants: searchResults, keywords })
 })
 
 // start and listen on the Express server
 app.listen(port, () => {
   console.log(`Listening on http://localhost:${port}`)
 })
+
+function x(kws, range) {
+  return kws.every(kw => range.includes(kw))
+}
