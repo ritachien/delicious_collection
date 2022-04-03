@@ -38,7 +38,3 @@ app.get('/search', (req, res) => {
 app.listen(port, () => {
   console.log(`Listening on http://localhost:${port}`)
 })
-
-function x(kws, range) {
-  return kws.every(kw => range.includes(kw))
-}
