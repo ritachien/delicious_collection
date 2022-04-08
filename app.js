@@ -26,10 +26,22 @@ db.once('open', () => {
 app.engine('handlebars', exphbs.engine()) // defaultLayout: main
 app.set('view engine', 'handlebars')
 
-// Setting static file
+// Middlewares
 app.use(express.static('public'))
+app.use(bodyParser.urlencoded({ extended: true }))
 
 // Routes settings
+// Create: add new restaurant info
+app.post('/restaurants', (req, res) => {
+  Restarant.create(req.body)
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
+// Read: Show add page of new restaurant
+app.get('/restaurants/new', (req, res) => {
+  res.render('add_new')
+})
 // Read: show all restaurants
 app.get('/', (req, res) => {
   Restarant.find()
@@ -38,10 +50,13 @@ app.get('/', (req, res) => {
     .catch(error => console.log(error))
 })
 
-// show detail info of target restaurant
+// Read: show detail info of target restaurant
 app.get('/restaurants/:id', (req, res) => {
-  const restaurant = list.results.find(item => item.id.toString() === req.params.id)
-  res.render('show', { restaurant })
+  const id = req.params.id
+  Restarant.findById(id)
+    .lean()
+    .then(restaurant => res.render('detail', { restaurant }))
+    .catch(error => console.log(error))
 })
 
 // show search results

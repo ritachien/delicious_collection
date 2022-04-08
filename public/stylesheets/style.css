@@ -37,7 +37,7 @@ header {
 
 .form-control::placeholder {
   color: #aaaaaa;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .btn-major {
@@ -47,27 +47,27 @@ header {
 
 .form-control:focus {
   box-shadow: none;
-  border-color: #ced4da;
+  border-color: #e4861a;
 }
 
-.card {
+.restaurant-card {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-.card:hover {
+.restaurant-card:hover {
   transform: scale(1.1);
   border-color: #ffc600;
   box-shadow: 0 0 1rem #ffc600;
 }
 
-.card img{
+.card img {
   height: 180px;
 }
 
-.card-title{
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
+.card-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .restaurant-category {
@@ -84,6 +84,37 @@ header {
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
+.add-new-form {
+  margin: 0 auto;
+  max-width: 680px;
+  background-color: #fce2cf;
+  border-radius: 8px;
+  padding: 20px 30px;
+  border: 0;
+  margin-top: -60px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  color: #9b4b4b;
+}
+
+.add-new-form h3 {
+  text-align: center;
+}
+
+.add-new-form .btn-form-submit {
+  text-align: right;
+}
+
+.add-new-form button {
+  margin-top: 18px;
+  padding: 5px 40px;
+  font-size: larger;
+}
+
+.add-label {
+  font-size: large;
+  font-weight: 700;
+}
+
 #search-hint {
   margin: 30px 70px;
   font-weight: 600;
@@ -92,23 +123,23 @@ header {
 }
 
 @media screen and (max-width: 992px) {
-  
-  .card img{
+
+  .card img {
     height: 115px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  
+
   .restaurant-show-title {
     font-size: 2rem;
   }
 }
 
 @media screen and (max-width: 575px) {
-  
-  .card img{
+
+  .card img {
     height: auto;
   }
-  
+
 }
