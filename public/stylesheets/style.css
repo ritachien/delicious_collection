@@ -55,9 +55,13 @@ header {
 }
 
 .restaurant-card:hover {
-  transform: scale(1.1);
+  transform: scale(1.02);
   border-color: #ffc600;
-  box-shadow: 0 0 1rem #ffc600;
+  box-shadow: 0 0 0.5rem #ffc600;
+}
+
+.card {
+  border: 1px solid #f0c593;
 }
 
 .card img {
@@ -68,6 +72,15 @@ header {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.card-footer {
+  background-color: #fce2cf;
+  text-align: right;
+}
+
+.card-footer a {
+  margin: auto 5px;
 }
 
 .restaurant-category {
@@ -84,7 +97,7 @@ header {
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.add-new-form {
+.info-form {
   margin: 0 auto;
   max-width: 680px;
   background-color: #fce2cf;
@@ -96,17 +109,25 @@ header {
   color: #9b4b4b;
 }
 
-.add-new-form h3 {
+.info-form h3 {
   text-align: center;
 }
 
-.add-new-form .btn-form-submit {
+.btn-form {
+  margin-top: 18px;
   text-align: right;
 }
 
-.add-new-form button {
-  margin-top: 18px;
-  padding: 5px 40px;
+
+
+.btn-form i {
+  margin-right: 10px;
+}
+
+.info-form button,
+.info-form a {
+  margin-left: 15px;
+  padding: 5px 25px;
   font-size: larger;
 }
 
@@ -120,6 +141,10 @@ header {
   font-weight: 600;
   font-style: italic;
   color: grey;
+}
+
+#search-button {
+  border-radius: 0 4px 4px 0;
 }
 
 @media screen and (max-width: 992px) {

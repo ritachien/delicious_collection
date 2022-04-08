@@ -42,6 +42,7 @@ app.post('/restaurants', (req, res) => {
 app.get('/restaurants/new', (req, res) => {
   res.render('add_new')
 })
+
 // Read: show all restaurants
 app.get('/', (req, res) => {
   Restarant.find()
@@ -68,6 +69,24 @@ app.get('/search', (req, res) => {
   })
 
   res.render('index', { restaurants: searchResults, keywords })
+})
+
+// Read: Show edit page
+app.get('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  Restarant.findById(id)
+    .lean()
+    .then(restaurant => res.render('edit', { restaurant }))
+    .catch(error => console.log(error))
+})
+
+// Update: renew data from edit page
+app.post('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  Restarant.findByIdAndUpdate(id, req.body)
+    .then(() => res.redirect(`/restaurants/${id}`))
+    .catch(error => console.log(error))
+
 })
 
 // start and listen on the Express server
