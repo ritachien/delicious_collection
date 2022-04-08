@@ -40,7 +40,7 @@ app.post('/restaurants', (req, res) => {
 
 // Read: Show add page of new restaurant
 app.get('/restaurants/new', (req, res) => {
-  res.render('add_new')
+  res.render('add_new', { layout: 'info' })
 })
 
 // Read: show all restaurants
@@ -76,7 +76,7 @@ app.get('/restaurants/:id/edit', (req, res) => {
   const id = req.params.id
   Restarant.findById(id)
     .lean()
-    .then(restaurant => res.render('edit', { restaurant }))
+    .then(restaurant => res.render('edit', { restaurant, layout: 'info' }))
     .catch(error => console.log(error))
 })
 
