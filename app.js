@@ -1,20 +1,41 @@
-// packages and variables
+// Import modules and data & set related variables
+const dotenv = require('dotenv').config()
 const express = require('express')
-const app = express()
+const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
 const exphbs = require('express-handlebars')
-const list = require('./restaurant.json')
+const Restarant = require('./models/restaurant.js')
+
+const app = express()
 const port = 3000
 
+// Connect to database and set event listener
+mongoose.connect(process.env.MONGODB_URI)
+const db = mongoose.connection
+
+db.on('error', () => {
+  console.log('MongoDB connecting error!')
+})
+
+db.once('open', () => {
+  console.log('MongoDB connected!')
+})
+
+
 // Set express engine
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
+app.engine('handlebars', exphbs.engine()) // defaultLayout: main
 app.set('view engine', 'handlebars')
 
 // Setting static file
 app.use(express.static('public'))
 
 // Routes settings
+// Read: show all restaurants
 app.get('/', (req, res) => {
-  res.render('index', { restaurants: list.results })
+  Restarant.find()
+    .lean()
+    .then(restaurants => res.render('index', { restaurants }))
+    .catch(error => console.log(error))
 })
 
 // show detail info of target restaurant
