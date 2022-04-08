@@ -30,12 +30,23 @@
         {{ restaurant.phone }}
       </p>
 
-      <p class="mb-5">
+      <p class="mb-0">
         {{ restaurant.description }}
       </p>
 
       <img class="rounded mx-auto d-block mb-4 w-100" src="{{ restaurant.image }}" alt="{{ restaurant.name }}"
-        style="max-width: 600px;">
+        style="max-width: 600px; position:relative; bottom: -60px">
     </div>
+  </div>
+
+</div>
+<div class=" detail-footer">
+  <div class="btn-form" style="text-align:center">
+    <a href="/" class="btn btn-major">
+      <i class="fas fa-arrow-circle-left"></i>Back
+    </a>
+    <a href="/restaurants/{{ restaurant._id }}/edit" class="btn btn-major">
+      <i class="fas fa-pencil-alt"></i>Edit
+    </a>
   </div>
 </div>
