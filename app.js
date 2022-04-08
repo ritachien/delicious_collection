@@ -60,15 +60,20 @@ app.get('/restaurants/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
-// show search results
+// Read: show search results
 app.get('/search', (req, res) => {
   const keywords = req.query.keyword.toLowerCase().trim().split(',')
-  const searchResults = list.results.filter((item) => {
-    const searchRange = (item.name + item.name_en + item.category + item.location).toLowerCase().trim()
-    return keywords.every(keyword => searchRange.includes(keyword))
-  })
 
-  res.render('index', { restaurants: searchResults, keywords })
+  Restarant.find()
+    .lean()
+    .then(restaurantData => {
+      const searchResults = restaurantData.filter((item) => {
+        const searchRange = (item.name + item.name_en + item.category + item.location).toLowerCase().trim()
+        return keywords.every(keyword => searchRange.includes(keyword))
+      })
+      res.render('index', { restaurants: searchResults, keywords })
+    })
+    .catch(error => console.log(error))
 })
 
 // Read: Show edit page
