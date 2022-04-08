@@ -6,7 +6,9 @@
 ## Features  
 :star: Shows all restaurants in homepage.  
 :star: Click for further information of each restaurant.  
-:star: Search restaurant by keywords.
+:star: Search restaurants by keywords(Use comma to separate keywords).  
+:star: Add, edit, delete restaurants if needed.  
+:star: Support MongoDB to manage data.  
 
 
 
@@ -27,8 +29,20 @@ git clone <folder_name> https://github.com/ritachien/delicious_collection.git
 ```bash
 npm install
 ```
+
+### How to use  
+:white_check_mark: Set environment variable. Create a `.env` file in root, and add content to it.
+```bash
+MONGODB_URI=<your URI>
+```
+
+
 :white_check_mark: Run the following command after install finished.  
 ```bash
+# seeder for test data (8 seeds provided)
+npm run seed
+
+# start the app
 npm run start
 ```
 :white_check_mark: Open browser to the URL if you see following message in console.  
@@ -39,8 +53,10 @@ Listening on http://localhost:3000
 
 ## Built With
 * Node.js @16.14.2
-* Express.js @4.16.4 - The web framework used
-* express-handlebars @3.0.0 - View engine for Express
+* Express.js @4.17.3 - The web framework used
+* express-handlebars @6.0.4 - View engine for Express
+* dotenv @16.0.0 - Manage environment variables
+* mongoose @4.2.10 - Connect and operate MongoDB
 * Bootstrap @5.1.3 - For CSS stylesheet
 * Font-awesome @5.8.1 - Icon used in project
 
