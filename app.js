@@ -40,7 +40,7 @@ app.post('/restaurants', (req, res) => {
 
 // Read: Show add page of new restaurant
 app.get('/restaurants/new', (req, res) => {
-  res.render('add_new', { layout: 'info' })
+  res.render('edit', { layout: 'info' })
 })
 
 // Read: show all restaurants
@@ -62,6 +62,10 @@ app.get('/restaurants/:id', (req, res) => {
 
 // Read: show search results
 app.get('/search', (req, res) => {
+  if (!req.query.keyword) {
+    res.redirect("/")
+  }
+
   const keywords = req.query.keyword.toLowerCase().trim().split(',')
 
   Restarant.find()

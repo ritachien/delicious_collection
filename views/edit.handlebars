@@ -2,110 +2,118 @@
   <div class="row">
     <div class="col-12  mx-auto">
 
+      {{#if restaurant}}
       <h3>Edit Infos of Restaurant</h3>
       <hr>
       <form method="POST" action="/restaurants/{{restaurant._id}}/edit">
+        {{else}}
+        <h3>Add New Restaurant</h3>
+        <hr>
+        <form method="POST" action="/restaurants">
+          {{/if}}
 
-        <div class="row g-2 mb-4">
-          <label for="name" class="col-md-3 col-form-label add-label">
-            Name
-          </label>
-          <div class="col-md-9">
-            <input type="text" name="name" placeholder="Restaurant name" class="form-control" id="name"
-              value="{{restaurant.name}}" required>
+
+          <div class="row g-2 mb-4">
+            <label for="name" class="col-md-3 col-form-label add-label">
+              Name
+            </label>
+            <div class="col-md-9">
+              <input type="text" name="name" placeholder="Restaurant name" class="form-control" id="name" {{#if
+                restaurant}} value="{{restaurant.name}}" {{/if}} required>
+            </div>
           </div>
-        </div>
 
-        <div class="row g-2 mb-4">
-          <label for="name_en" class="col-md-3 col-form-label add-label">
-            English Name
-          </label>
-          <div class="col-md-9">
-            <input type="text" name="name_en" placeholder="Enter English restaurant name if exists..."
-              class="form-control" value="{{restaurant.name_en}}" id="name_en">
+          <div class="row g-2 mb-4">
+            <label for="name_en" class="col-md-3 col-form-label add-label">
+              English Name
+            </label>
+            <div class="col-md-9">
+              <input type="text" name="name_en" placeholder="Enter English restaurant name if exists..."
+                class="form-control" {{#if restaurant}} value="{{restaurant.name_en}}" {{/if}} id="name_en">
+            </div>
           </div>
-        </div>
 
-        <div class="row g-2 mb-4">
-          <label for="category" class="col-md-3 col-form-label add-label">
-            Category
-          </label>
-          <div class="col-md-9">
-            <input type="text" name="category" placeholder="ex. coffee" class="form-control" id="category"
-              value="{{restaurant.category}}" required>
+          <div class="row g-2 mb-4">
+            <label for="category" class="col-md-3 col-form-label add-label">
+              Category
+            </label>
+            <div class="col-md-9">
+              <input type="text" name="category" placeholder="ex. coffee" class="form-control" id="category" {{#if
+                restaurant}} value="{{restaurant.category}}" {{/if}} required>
+            </div>
           </div>
-        </div>
 
-        <div class="row g-2 mb-4">
-          <label for="image" class="col-md-3 col-form-label add-label">
-            Image URL
-          </label>
-          <div class="col-md-9">
-            <input type="text" name="image" placeholder="image url..." class="form-control" id="image"
-              value="{{restaurant.image}}" required>
+          <div class="row g-2 mb-4">
+            <label for="image" class="col-md-3 col-form-label add-label">
+              Image URL
+            </label>
+            <div class="col-md-9">
+              <input type="url" name="image" placeholder="image url..." class="form-control" id="image" {{#if
+                restaurant}} value="{{restaurant.image}}" {{/if}} required>
+            </div>
           </div>
-        </div>
 
-        <div class="row g-2 mb-4">
-          <label for="location" class="col-md-3 col-form-label add-label">
-            Location
-          </label>
-          <div class="col-md-9">
-            <input type="text" name="location" placeholder="Restaurant address" class="form-control" id="location"
-              value="{{restaurant.location}}" required>
+          <div class="row g-2 mb-4">
+            <label for="location" class="col-md-3 col-form-label add-label">
+              Location
+            </label>
+            <div class="col-md-9">
+              <input type="text" name="location" placeholder="Restaurant address" class="form-control" id="location"
+                {{#if restaurant}} value="{{restaurant.location}}" {{/if}} required>
+            </div>
           </div>
-        </div>
 
-        <div class="row g-2 mb-4">
-          <label for="phone" class="col-md-3 col-form-label add-label">
-            Phone
-          </label>
-          <div class="col-md-9">
-            <input type="text" name="phone" placeholder="01-2345-6789" class="form-control" id="phone"
-              value="{{restaurant.phone}}" required>
+          <div class="row g-2 mb-4">
+            <label for="phone" class="col-md-3 col-form-label add-label">
+              Phone
+            </label>
+            <div class="col-md-9">
+              <input type="tel" name="phone" placeholder="01-2345-6789" class="form-control" id="phone"
+                pattern="[\d\-]{1,}" {{#if restaurant}} value="{{restaurant.phone}}" {{/if}} required>
+            </div>
           </div>
-        </div>
 
-        <div class="row g-2 mb-4">
-          <label for="google_map" class="col-md-3 col-form-label add-label">
-            Google Map
-          </label>
-          <div class="col-md-9">
-            <input type="text" name="google_map" placeholder="https://goo.gl/maps/XXXXXXXX" class="form-control"
-              id="google_map" value="{{restaurant.google_map}}" required>
+          <div class="row g-2 mb-4">
+            <label for="google_map" class="col-md-3 col-form-label add-label">
+              GoogleMap URL
+            </label>
+            <div class="col-md-9">
+              <input type="url" name="google_map" placeholder="https://goo.gl/maps/XXXXXXXX" class="form-control"
+                id="google_map" {{#if restaurant}} value="{{restaurant.google_map}}" {{/if}} required>
+            </div>
           </div>
-        </div>
 
-        <div class="row g-2 mb-4">
-          <label for="rating" class="col-md-3 col-form-label add-label">
-            Rating
-          </label>
-          <div class="col-md-9">
-            <input type="number" name="rating" step="0.1" min="0" max="5" placeholder="Points from 0 ~ 5"
-              class="form-control" id="rating" value="{{restaurant.rating}}" required>
+          <div class="row g-2 mb-4">
+            <label for="rating" class="col-md-3 col-form-label add-label">
+              Rating
+            </label>
+            <div class="col-md-9">
+              <input type="number" name="rating" step="0.1" min="0" max="5" placeholder="Points from 0 ~ 5"
+                class="form-control" id="rating" {{#if restaurant}} value="{{restaurant.rating}}" {{/if}} required>
+            </div>
           </div>
-        </div>
 
-        <div class="row g-2 mb-4">
-          <label for="description" class="col-md-3 col-form-label add-label">
-            Description
-          </label>
-          <div class="col-md-9">
-            <textarea name="description" placeholder="Some description of restaurant..." id="description" rows="5"
-              class="form-control" required>{{restaurant.description}}</textarea>
+          <div class="row g-2 mb-4">
+            <label for="description" class="col-md-3 col-form-label add-label">
+              Description
+            </label>
+            <div class="col-md-9">
+              <textarea name="description" placeholder="Some description of restaurant..." id="description" rows="5"
+                class="form-control" required>{{#if
+                restaurant}} {{restaurant.description}} {{/if}}</textarea>
+            </div>
           </div>
-        </div>
-        <div class="btn-form">
-          <a href="/" class="btn btn-major">
-            <i class="fas fa-arrow-circle-left"></i>Back
-          </a>
-          <button class="btn btn-major" type="submit">
-            <i class="fas fa-save"></i>Save
-          </button>
-        </div>
+          <div class="btn-form">
+            <a href="/" class="btn btn-major">
+              <i class="fas fa-arrow-circle-left"></i>Back
+            </a>
+            <button class="btn btn-major" type="submit">
+              <i class="fas fa-save"></i>Save
+            </button>
+          </div>
 
 
-      </form>
+        </form>
 
     </div>
   </div>
