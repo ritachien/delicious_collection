@@ -1,5 +1,5 @@
 # Delicious Collection
-![demo.png](https://github.com/ritachien/delicious_collection/blob/main/Demo.png?raw=true)
+![demo.png](./Demo.png)
 <br>
 :sparkles: Display information of your favorite restaurants.  
 
@@ -8,6 +8,7 @@
 :star: Click for further information of each restaurant.  
 :star: Search restaurants by keywords(Use comma to separate keywords).  
 :star: Add, edit, delete restaurants if needed.  
+:star: Click to get google map of the restaurant.
 :star: Support MongoDB to manage data.  
 
 

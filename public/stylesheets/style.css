@@ -106,6 +106,7 @@ header {
 
 .card-footer button:hover {
   text-decoration: underline;
+  outline: none;
 }
 
 .restaurant-category {

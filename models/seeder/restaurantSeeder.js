@@ -2,7 +2,7 @@
 const dotenv = require('dotenv').config()
 const mongoose = require('mongoose')
 const Restaurant = require('../restaurant')
-const restarantsData = require('../../restaurant').results
+const restarantsData = require('../../restaurant.json').results
 
 
 // Connect to database and set listener
@@ -16,5 +16,9 @@ db.on('error', () => {
 db.once('open', () => {
   console.log(`MongoDB connected! \nCreating seeds......`)
   Restaurant.create(restarantsData)
-    .then(() => console.log('Done!'))
+    .then(() => {
+      console.log('Done!')
+      db.close()
+    })
+    .catch(error => console.log(error))
 })
