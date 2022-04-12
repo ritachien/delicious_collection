@@ -4,7 +4,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const exphbs = require('express-handlebars')
-const Restarant = require('./models/restaurant.js')
+const methodOverride = require('method-override')
+const Restaurant = require('./models/restaurant.js')
 
 const app = express()
 const port = 3000
@@ -29,11 +30,12 @@ app.set('view engine', 'handlebars')
 // Middlewares
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(methodOverride('_method'))
 
 // Routes settings
 // Create: add new restaurant info
 app.post('/restaurants', (req, res) => {
-  Restarant.create(req.body)
+  Restaurant.create(req.body)
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
@@ -45,7 +47,7 @@ app.get('/restaurants/new', (req, res) => {
 
 // Read: show all restaurants
 app.get('/', (req, res) => {
-  Restarant.find()
+  Restaurant.find()
     .lean()
     .then(restaurants => res.render('index', { restaurants }))
     .catch(error => console.log(error))
@@ -54,7 +56,7 @@ app.get('/', (req, res) => {
 // Read: show detail info of target restaurant
 app.get('/restaurants/:id', (req, res) => {
   const id = req.params.id
-  Restarant.findById(id)
+  Restaurant.findById(id)
     .lean()
     .then(restaurant => res.render('detail', { restaurant }))
     .catch(error => console.log(error))
@@ -68,7 +70,7 @@ app.get('/search', (req, res) => {
 
   const keywords = req.query.keyword.toLowerCase().trim().split(',')
 
-  Restarant.find()
+  Restaurant.find()
     .lean()
     .then(restaurantData => {
       const searchResults = restaurantData.filter((item) => {
@@ -83,24 +85,24 @@ app.get('/search', (req, res) => {
 // Read: Show edit page
 app.get('/restaurants/:id/edit', (req, res) => {
   const id = req.params.id
-  Restarant.findById(id)
+  Restaurant.findById(id)
     .lean()
     .then(restaurant => res.render('edit', { restaurant, layout: 'info' }))
     .catch(error => console.log(error))
 })
 
 // Update: renew data from edit page
-app.post('/restaurants/:id/edit', (req, res) => {
+app.put('/restaurants/:id', (req, res) => {
   const id = req.params.id
-  Restarant.findByIdAndUpdate(id, req.body)
+  Restaurant.findByIdAndUpdate(id, req.body)
     .then(() => res.redirect(`/restaurants/${id}`))
     .catch(error => console.log(error))
-
 })
 
-app.post('/restaurants/:id/delete', (req, res) => {
+// Delete: delete selected restaurant
+app.delete('/restaurants/:id', (req, res) => {
   const id = req.params.id
-  Restarant.findByIdAndDelete(id)
+  Restaurant.findByIdAndDelete(id)
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
