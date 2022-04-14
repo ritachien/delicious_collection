@@ -15,12 +15,42 @@
   </div>
 </div>
 
+
 <!-- restaurant list -->
-<div class="container mt-5">
-  {{#if keywords}}
-  <h5 id="search-hint">共找到 {{ restaurants.length }} 筆符合資料!</h5>
-  {{/if}}
-  <div class="row">
+<div class="container mt-3">
+  <div class="row sort-col">
+    {{#if keywords}}
+    <h5 id="search-hint">共找到 {{ restaurants.length }} 筆符合資料!</h5>
+    {{/if}}
+    <div class="dropdown">
+      <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="sort" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Sort
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="sort">
+        <li>
+          <a class="dropdown-item" href="{{#if keywords}}?keyword={{keywords}}&{{else}}?{{/if}}sort=name">A > Z
+            (Default)</a>
+        </li>
+        <li>
+          <a class="dropdown-item" href="{{#if keywords}}?keyword={{keywords}}&{{else}}?{{/if}}sort=-name">Z > A</a>
+        </li>
+        <li>
+          <a class="dropdown-item"
+            href="{{#if keywords}}?keyword={{keywords}}&{{else}}?{{/if}}sort=category">Category</a>
+        </li>
+        <li>
+          <a class="dropdown-item"
+            href="{{#if keywords}}?keyword={{keywords}}&{{else}}?{{/if}}sort=location">Location</a>
+        </li>
+        <li>
+          <a class="dropdown-item" href="{{#if keywords}}?keyword={{keywords}}&{{else}}?{{/if}}sort=rating">rating</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row mt-0 py-0">
     <div class="col-md-10 col-12 mx-auto">
       <div class="card-columns">
         {{#each restaurants}}
