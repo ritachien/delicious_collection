@@ -7,6 +7,7 @@
 :star: Shows all restaurants in homepage.  
 :star: Click for further information of each restaurant.  
 :star: Search restaurants by keywords(Use comma to separate keywords).  
+:star: Sort restaurants by name, category, location or rating.  
 :star: Add, edit, delete restaurants if needed.  
 :star: Click to get google map of the restaurant.
 :star: Support MongoDB to manage data.  
@@ -32,9 +33,9 @@ npm install
 ```
 
 ### How to use  
-:white_check_mark: Set environment variable. Create a `.env` file in root, and add content to it.
+:white_check_mark: Set environment variable. Create a `.env` file in `config` folder, and add content to it.
 ```bash
-MONGODB_URI=<your URI>
+MONGODB_URI="<your URI>"
 ```
 
 
@@ -44,6 +45,7 @@ MONGODB_URI=<your URI>
 npm run seed
 
 # start the app
+# Be sure your current working directory is root, or it might cause .env loading error!
 npm run start
 ```
 :white_check_mark: Open browser to the URL if you see following message in console.  
