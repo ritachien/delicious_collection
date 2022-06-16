@@ -1,4 +1,4 @@
-require('dotenv').config({ path: 'config/.env' })  // path related to pwd
+require('dotenv').config()
 const mongoose = require('mongoose')
 
 // Connect to database and set event listener
