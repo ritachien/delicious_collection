@@ -12,7 +12,7 @@ router.post('/', (req, res) => {
 
 // Read: Show add page of new restaurant
 router.get('/new', (req, res) => {
-  res.render('edit', { layout: 'info' })
+  res.render('edit', { layout: 'form' })
 })
 
 // Read: show detail info of target restaurant
@@ -29,7 +29,7 @@ router.get('/:id/edit', (req, res) => {
   const id = req.params.id
   Restaurant.findById(id)
     .lean()
-    .then(restaurant => res.render('edit', { restaurant, layout: 'info' }))
+    .then(restaurant => res.render('edit', { restaurant, layout: 'form' }))
     .catch(error => console.log(error))
 })
 
