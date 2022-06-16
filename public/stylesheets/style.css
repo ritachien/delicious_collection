@@ -172,7 +172,7 @@ header {
 
 .user-form {
   margin: 10vh auto;
-  max-width: 450px;
+  max-width: 500px;
   background-color: #fce2cf;
   border-radius: 8px;
   padding: 20px 40px;
@@ -224,6 +224,20 @@ header {
   margin: 50px auto 5px;
   max-width: 90%;
   display: flow-root;
+}
+
+.alert-warning {
+  padding: 10px;
+  border: 1px solid #f0c593;
+  color: #ff5100;
+  font-size: large;
+  font-weight: 700;
+}
+
+.alert-success {
+  padding: 10px;
+  font-size: large;
+  font-weight: 700;
 }
 
 #sort {

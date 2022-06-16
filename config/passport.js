@@ -8,9 +8,11 @@ module.exports = app => {
   app.use(passport.session())
 
   // Set Local Strategy
-  passport.use(new LocalStrategy(
-    { usernameField: 'email' },  // Change argument from username(default) to email
-    (email, password, done) => {
+  passport.use(new LocalStrategy({
+    usernameField: 'email',  // Change argument from default value
+    passReqToCallback: true
+  },
+    (req, email, password, done) => {
       User.findOne({ email })
         .then(user => {
           // Case: Email not yet registered
