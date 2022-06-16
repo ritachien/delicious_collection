@@ -147,6 +147,17 @@ header {
   color: #9b4b4b;
 }
 
+.user-form {
+  margin: 10vh auto;
+  max-width: 450px;
+  background-color: #fce2cf;
+  border-radius: 8px;
+  padding: 20px 40px;
+  border: 0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  color: #9b4b4b;
+}
+
 .info-form h3 {
   text-align: center;
 }
