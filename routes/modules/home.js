@@ -5,8 +5,10 @@ const Restaurant = require('../../models/restaurant')
 
 // Read: show all restaurants
 router.get('/', (req, res) => {
+  const userId = req.user._id
   const sort = req.query.sort || 'name'
-  Restaurant.find()
+
+  Restaurant.find({ userId })
     .lean()
     .sort(sort)
     .then(restaurants => res.render('index', { restaurants }))
