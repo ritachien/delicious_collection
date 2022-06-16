@@ -181,6 +181,16 @@ header {
   color: #9b4b4b;
 }
 
+.btn-auth {
+  font-weight: 500;
+  border: none;
+}
+
+.btn-facebook {
+  color: #FFFFFF;
+  background-color: #4267B2;
+}
+
 .info-form h3 {
   text-align: center;
 }

@@ -15,7 +15,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const app = express()
-const port = 3000
+const PORT = process.env.PORT
 
 // Set express engine
 app.engine('handlebars', exphbs.engine()) // defaultLayout: main
@@ -43,6 +43,6 @@ app.use((req, res, next) => {
 app.use(routes)
 
 // start and listen on the Express server
-app.listen(port, () => {
-  console.log(`Listening on http://localhost:${port}`)
+app.listen(PORT, () => {
+  console.log(`Listening on http://localhost:${PORT}`)
 })
