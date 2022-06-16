@@ -27,6 +27,14 @@
             width="30" height="30" class="d-inline-block align-top" alt="我的餐廳清單">
           <strong>DELICIOUS COLLECTION</strong>
         </a>
+        <div class="user-state-item">
+          {{#if isAuthenticated}}
+          <span><i class="fas fa-user"></i> {{user.name}}</span>
+          <a href="/users/logout" class="btn btn-navbar">Logout</a>
+          {{else}}
+          <a href="/users/login" class="btn btn-navbar">Login</a>
+          {{/if}}
+        </div>
       </div>
     </nav>
 
