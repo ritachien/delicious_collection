@@ -1,0 +1,16 @@
+<div class="container mx-auto mt-5">
+  <div class="delete-card text-center mx-auto ">
+    <div class="card">
+      <h2 class="card-header">warning</h2>
+      <div class="card-body">
+        <h4 class="card-title">Are you sure?</h4>
+        <p class="card-text">You won't be able to revert this!</p>
+        <a href="/" class="btn btn-primary">Cancel</a>
+        <form action="/restaurants/{{ restaurant._id }}?_method=DELETE" method="POST" style="display: inline">
+          <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Delete</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>

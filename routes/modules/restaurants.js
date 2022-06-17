@@ -18,6 +18,16 @@ router.get('/new', (req, res) => {
   res.render('edit', { layout: 'form' })
 })
 
+// Delete warning page
+router.get('/:id/delete', (req, res) => {
+  const userId = req.user._id
+  const _id = req.params.id
+  return Restaurants.findOne({ _id, userId })
+    .lean()
+    .then(restaurant => res.render('delete', { restaurant, layout: 'form' }))
+    .catch(error => console.log(error))
+})
+
 // Read: Show edit page
 router.get('/:id/edit', (req, res) => {
   const id = req.params.id

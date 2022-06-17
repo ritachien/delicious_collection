@@ -78,9 +78,10 @@
           <div class="card-footer">
             <a href="./restaurants/{{ this._id }}">More</a>
             <a href="./restaurants/{{ this._id }}/edit" style="color: green">Edit</a>
-            <form action="./restaurants/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+            <a href="/restaurants/{{this._id }}/delete" style="color: red">Delete</a>
+            {{!-- <form action="./restaurants/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
               <button type="submit" style="color: red">Delete</a>
-            </form>
+            </form> --}}
 
           </div>
         </div>

@@ -48,8 +48,6 @@
     <a href="/restaurants/{{ restaurant._id }}/edit" class="btn btn-major">
       <i class="fas fa-pencil-alt"></i>Edit
     </a>
-    <form action="/restaurants/{{ restaurant._id }}?_method=DELETE" method="POST" style="display: inline">
-      <button type="submit" class="btn btn-major"><i class="fas fa-trash-alt"></i>Delete</button>
-    </form>
+    <a href="/restaurants/{{ restaurant._id }}/delete" class="btn btn-major"><i class="fas fa-trash-alt"></i>Delete</a>
   </div>
 </div>
