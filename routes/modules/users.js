@@ -35,7 +35,7 @@ router.post('/register', (req, res) => {
   const register_error = []
 
   // Check form filling errors
-  // Case: Some block remains blank
+  // Case: Some block remains blank(name is not required)
   if (!email || !password || !confirmPassword) {
     register_error.push({ message: 'Email、密碼及確認密碼欄位都是必填。' })
   }
@@ -60,8 +60,9 @@ router.post('/register', (req, res) => {
     .then(user => {
       // Case: If email is registered
       if (user) {
-        errors.push({ message: '這個 Email 已經註冊過了。' })
-        res.render('register', {
+        register_error.push({ message: '這個 Email 已經註冊過了。' })
+        return res.render('register', {
+          register_error,
           name,
           email,
           password,
