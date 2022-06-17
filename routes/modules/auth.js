@@ -3,11 +3,22 @@ const passport = require('passport')
 
 const router = express.Router()
 
+// Route for Facebook auth =========================
 router.get('/facebook', passport.authenticate('facebook', {
   scope: ['email', 'public_profile']
 }))
 
 router.get('/facebook/callback', passport.authenticate('facebook', {
+  successRedirect: '/',
+  failureRedirect: '/users/login'
+}))
+
+// Route for Google auth ===========================
+router.get('/google', passport.authenticate('google', {
+  scope: ['email', 'profile']
+}))
+
+router.get('/google/callback', passport.authenticate('google', {
   successRedirect: '/',
   failureRedirect: '/users/login'
 }))

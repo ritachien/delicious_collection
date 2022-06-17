@@ -27,15 +27,15 @@ header {
 }
 
 .btn-navbar {
-  font-weight: 700;
+  font-weight: 600;
   color: #4592af;
-  border: 2px solid #4592af;
+  border: 1.5px solid #4592af;
 }
 
 .btn-navbar:hover {
-  font-weight: 700;
+  font-weight: 600;
   color: #226089;
-  border: 2px solid #226089;
+  border: 1.5px solid #226089;
 }
 
 .info-area {
@@ -172,7 +172,7 @@ header {
 
 .user-form {
   margin: 10vh auto;
-  max-width: 500px;
+  max-width: 450px;
   background-color: #fce2cf;
   border-radius: 8px;
   padding: 20px 40px;
@@ -181,14 +181,26 @@ header {
   color: #9b4b4b;
 }
 
+.auth-login {
+  justify-content: space-between;
+  padding: 5px;
+}
+
 .btn-auth {
-  font-weight: 500;
   border: none;
 }
 
 .btn-facebook {
+  font-weight: 500;
   color: #FFFFFF;
   background-color: #4267B2;
+}
+
+.btn-google {
+  font-weight: bolder;
+  letter-spacing: 2px;
+  color: #000000;
+  background-color: #FFFFFF;
 }
 
 .info-form h3 {
