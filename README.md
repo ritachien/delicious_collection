@@ -4,13 +4,13 @@
 :sparkles: Display information of your favorite restaurants.  
 
 ## Features  
-:star: Login / register via Facebook or Google.
+:star: Login / register via Facebook or Google.  
 :star: Shows users own restaurants list.  
 :star: Click for further information of each restaurant.  
 :star: Search restaurants by keywords(Use comma to separate keywords).  
 :star: Sort restaurants by name, category, location or rating.  
 :star: Add, edit, delete restaurants if needed.  
-:star: Click to get google map of the restaurant.
+:star: Click to get google map of the restaurant.  
 :star: Support MongoDB to manage data.  
 
 ## Getting Started
@@ -67,4 +67,4 @@ Listening on http://localhost:3000
 * passport-local @1.0.0
 
 ## Authors
-* [**Rita Chien**](https://github.com/ritachien) - project develop.  
+* [**Rita Chien**](https://github.com/ritachien)  
