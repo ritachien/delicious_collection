@@ -4,15 +4,14 @@
 :sparkles: Display information of your favorite restaurants.  
 
 ## Features  
-:star: Shows all restaurants in homepage.  
+:star: Login / register via Facebook or Google.
+:star: Shows users own restaurants list.  
 :star: Click for further information of each restaurant.  
 :star: Search restaurants by keywords(Use comma to separate keywords).  
 :star: Sort restaurants by name, category, location or rating.  
 :star: Add, edit, delete restaurants if needed.  
 :star: Click to get google map of the restaurant.
 :star: Support MongoDB to manage data.  
-
-
 
 ## Getting Started
 ### Prerequisites
@@ -33,19 +32,15 @@ npm install
 ```
 
 ### How to use  
-:white_check_mark: Set environment variable. Create a `.env` file in `config` folder, and add content to it.
-```bash
-MONGODB_URI="<your URI>"
-```
-
+:white_check_mark: Set environment variables. Create a `.env` file in root, and add content to it. The needed variabls are listed in `.env.example` file.  
 
 :white_check_mark: Run the following command after install finished.  
 ```bash
-# seeder for test data (8 seeds provided)
+# seeders: 2 users with 3 restaurants of each.
 npm run seed
 
 # start the app
-# Be sure your current working directory is root, or it might cause .env loading error!
+# Be sure your current working directory is root, or it might cause some path loading error!
 npm run start
 ```
 :white_check_mark: Open browser to the URL if you see following message in console.  
@@ -55,14 +50,21 @@ Listening on http://localhost:3000
 :white_check_mark: Stop using the app by `Ctrl + c`  
 
 ## Built With
+* Bootstrap @5.1.3
+* Express.js @4.17.3
+* Font-awesome @5.8.1
 * Node.js @16.14.2
-* Express.js @4.17.3 - The web framework used
-* express-handlebars @6.0.4 - View engine for Express
-* dotenv @16.0.0 - Manage environment variables
-* mongoose @4.2.10 - Connect and operate MongoDB
-* Bootstrap @5.1.3 - For CSS stylesheet
-* Font-awesome @5.8.1 - Icon used in project
+* bcryptjs @2.4.3
+* connect-flash @0.1.1
+* dotenv @16.0.0
+* express-handlebars @6.0.4
+* express-session @1.17.3
+* method-override @3.0.0
+* mongoose @6.2.10
+* passport @0.6.0
+* passport-facebook @3.0.0
+* passport-google-oauth20 @2.0.0
+* passport-local @1.0.0
 
 ## Authors
-* Alpha Camp - project design.  
 * [**Rita Chien**](https://github.com/ritachien) - project develop.  

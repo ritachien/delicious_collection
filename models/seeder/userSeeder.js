@@ -7,14 +7,14 @@ const User = require('../user')
 // Data for seed users
 const seedUsers = [
   {
-    name: 'user_1',
-    email: 'user_1@example.com',
+    name: 'user1',
+    email: 'user1@example.com',
     password: '12345678',
     restaurantsList: [1, 2, 3]
   },
   {
-    name: 'user_2',
-    email: 'user_2@example.com',
+    name: 'user2',
+    email: 'user2@example.com',
     password: '12345678',
     restaurantsList: [4, 5, 6]
   }
