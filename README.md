@@ -6,7 +6,7 @@
 ## Features  
 :star: Login / register via Facebook or Google.  
 :star: Shows users own restaurants list.  
-:star: Click for further information of each restaurant.  
+:star: Click for further information of each restaurants.  
 :star: Search restaurants by keywords(Use comma to separate keywords).  
 :star: Sort restaurants by name, category, location or rating.  
 :star: Add, edit, delete restaurants if needed.  
@@ -18,6 +18,8 @@
 :white_check_mark: Be sure that Node.js and npm are installed already.  
 - MacOS ([XCode](https://developer.apple.com/xcode/)、[nvm](https://github.com/nvm-sh/nvm))
 - Windows ([nvm-windows](https://github.com/coreybutler/nvm-windows/releases))
+
+:white_check_mark: If using `npm run dev` command, [nodemon](https://www.npmjs.com/package/nodemon) must be preinstalled.  
 
 ### Installing
 
@@ -32,7 +34,7 @@ npm install
 ```
 
 ### How to use  
-:white_check_mark: Set environment variables. Create a `.env` file in root, and add content to it. The needed variabls are listed in `.env.example` file.  
+:white_check_mark: Set environment variables. Create a `.env` file in root, and add content to it. The needed variables are listed in `.env.example` file.  
 
 :white_check_mark: Run the following command after install finished.  
 ```bash
@@ -50,21 +52,14 @@ Listening on http://localhost:3000
 :white_check_mark: Stop using the app by `Ctrl + c`  
 
 ## Built With
-* Bootstrap @5.1.3
-* Express.js @4.17.3
-* Font-awesome @5.8.1
-* Node.js @16.14.2
-* bcryptjs @2.4.3
-* connect-flash @0.1.1
-* dotenv @16.0.0
-* express-handlebars @6.0.4
-* express-session @1.17.3
-* method-override @3.0.0
-* mongoose @6.2.10
-* passport @0.6.0
-* passport-facebook @3.0.0
-* passport-google-oauth20 @2.0.0
-* passport-local @1.0.0
+* Runtime: node@16.14.2  
+* Framework: express@4.17.3  
+* Database: mongoose@6.2.10  
+* View Engine: express-handlebars@6.0.4  
+
+
+Other dependencies are listed in package.json
+
 
 ## Authors
 * [**Rita Chien**](https://github.com/ritachien)  
