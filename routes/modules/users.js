@@ -60,7 +60,7 @@ router.post('/register', (req, res) => {
     .then(user => {
       // Case: If email is registered
       if (user) {
-        errors.push({ message: '這個 Email 已經註冊過了。' })
+        register_error.push({ message: '這個 Email 已經註冊過了。' })
         res.render('register', {
           name,
           email,
@@ -83,6 +83,41 @@ router.post('/register', (req, res) => {
         .catch(err => console.log(err))
     })
     .catch(err => console.log(err))
+})
+
+// Routes for Account =====================================
+router.get('/account/:id', (req, res) => {
+  const user = req.user
+  res.render('account', { user, layout: 'form' })
+})
+
+router.put('/account/:id', (req, res) => {
+  const _id = req.params.id
+  const { name, password, confirmPassword } = req.body
+  const account_error = []
+  // If no update to password
+  if (password.length === 0) {
+    return User.findByIdAndUpdate(_id, { name })
+  }
+
+  // Update password but different from confirmPassword
+  if (password !== confirmPassword) {
+    account_error.push({ message: '密碼和密碼確認不一致，請再試一次!' })
+    return res.redirect(`/users/${_id}`)
+  }
+
+  // Update password
+  if (passport.length && password === confirmPassword) {
+    return bcrypt
+      .genSalt(10)
+      .then(salt => bcrypt.hash(password, salt))
+      .then(hash => User.findByIdAndUpdate(_id, {
+        name,
+        password: hash
+      }))
+      .then(() => res.redirect('/'))
+      .catch(err => console.log(err))
+  }
 })
 
 module.exports = router
