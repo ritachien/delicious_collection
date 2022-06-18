@@ -1,24 +1,12 @@
+// Import modules
 const bcrypt = require('bcryptjs')
 const db = require('../../config/mongoose')
-const restaurantsData = require('./restaurant.json').results
 const Restaurant = require('../restaurant')
 const User = require('../user')
 
-// Data for seed users
-const seedUsers = [
-  {
-    name: 'user1',
-    email: 'user1@example.com',
-    password: '12345678',
-    restaurantsList: [1, 2, 3]
-  },
-  {
-    name: 'user2',
-    email: 'user2@example.com',
-    password: '12345678',
-    restaurantsList: [4, 5, 6]
-  }
-]
+// Import seeds data
+const seedRestaurants = require('./restaurants.json').seeds
+const seedUsers = require('./users.json').seeds
 
 db.once('open', () => {
   console.log('Start create seeds......')
@@ -40,7 +28,7 @@ db.once('open', () => {
             }))
             .then(user => {
               user = user.toObject()
-              const list = restaurantsData.filter(item => seedUser.restaurantsList.includes(item.id))
+              const list = seedRestaurants.filter(item => seedUser.restaurantsList.includes(item.id))
               return Promise.all(list.map(item => {
                 item.userId = user._id
                 return Restaurant.create(item)
