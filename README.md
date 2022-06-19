@@ -4,14 +4,20 @@
 :sparkles: Display information of your favorite restaurants.  
 
 ## Features  
+### User Account related  
 :star: Login / register via Facebook or Google.  
+:star: Enable to update user's name or password.  
+:star: Show dismissible success or error message block while login, register or account edit.)
+### Restarant list related  
 :star: Shows users own restaurants list.  
 :star: Click for further information of each restaurants.  
 :star: Search restaurants by keywords(Use comma to separate keywords).  
 :star: Sort restaurants by name, category, location or rating.  
 :star: Add, edit, delete restaurants if needed.  
 :star: Click to get google map of the restaurant.  
+### Others  
 :star: Support MongoDB to manage data.  
+:star: Use Passport.js to support authentication.
 
 ## Getting Started
 ### Prerequisites
@@ -56,6 +62,7 @@ Listening on http://localhost:3000
 * Framework: express@4.17.3  
 * Database: mongoose@6.2.10  
 * View Engine: express-handlebars@6.0.4  
+* Authentication: passport.js@0.6.0
 
 
 Other dependencies are listed in package.json
