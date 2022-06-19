@@ -20,10 +20,11 @@ router.get('/search', (req, res) => {
   if (!req.query.keyword) {
     res.redirect("/")
   }
+  const userId = req.user._id
   const sort = req.query.sort || 'name'
   const keywords = req.query.keyword
 
-  Restaurant.find()
+  Restaurant.find({ userId })
     .lean()
     .sort(sort)
     .then(restaurantData => {
