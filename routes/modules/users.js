@@ -32,22 +32,22 @@ router.get('/register', (req, res) => {
 
 router.post('/register', (req, res) => {
   const { name, email, password, confirmPassword } = req.body
-  const register_error = []
+  const error_msg = []
 
   // Check form filling errors
   // Case: Some block remains blank(name is not required)
   if (!email || !password || !confirmPassword) {
-    register_error.push({ message: 'Email、密碼及確認密碼欄位都是必填。' })
+    error_msg.push({ message: 'Email、密碼及確認密碼欄位都是必填。' })
   }
   // Case: Password is different from confirmPassword
   if (password !== confirmPassword) {
-    register_error.push({ message: '密碼與確認密碼不相符！' })
+    error_msg.push({ message: '密碼與確認密碼不相符！' })
   }
   // If fit any cases above
-  if (register_error.length) {
+  if (error_msg.length) {
     return res.render('register', {
       layout: 'form',
-      register_error,
+      error_msg,
       name,
       email,
       password,
@@ -60,9 +60,9 @@ router.post('/register', (req, res) => {
     .then(user => {
       // Case: If email is registered
       if (user) {
-        register_error.push({ message: '這個 Email 已經註冊過了。' })
+        error_msg.push({ message: '這個 Email 已經註冊過了。' })
         return res.render('register', {
-          register_error,
+          error_msg,
           name,
           email,
           password,

@@ -26,7 +26,7 @@ router.put('/', (req, res) => {
   if (passport || confirmPassword) {
     // If password NOT EQUALS confirmPassword
     if (password !== confirmPassword) {
-      req.flash('error_msg', '密碼與確認密碼不相符！')
+      req.flash('error_msg', { message: '密碼與確認密碼不相符！' })
       return res.redirect(`/account`)
     }
     // If password EQUALS confirmPassword

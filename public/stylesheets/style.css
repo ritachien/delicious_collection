@@ -178,7 +178,7 @@ header {
 
 .user-form {
   margin: 10vh auto;
-  max-width: 450px;
+  max-width: 500px;
   background-color: #fce2cf;
   border-radius: 8px;
   padding: 20px 40px;
@@ -266,6 +266,10 @@ header {
   padding: 10px;
   font-size: large;
   font-weight: 700;
+}
+
+.btn-close {
+  height: 0.5rem;
 }
 
 #sort {

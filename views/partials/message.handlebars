@@ -2,17 +2,17 @@
 <div class="alert alert-success alert-dismissible fade show" role="alert">
   <i class="bi bi-info-circle-fill mx-2"></i>
   {{{success_msg}}}
-  </button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
   </button>
 </div>
 {{/if}}
 
-{{#if register_error}}
-{{#each register_error}}
+{{#if error_msg}}
+{{#each error_msg}}
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
   <i class="bi bi-exclamation-triangle-fill mx-2"></i>
   {{{this.message}}}
-  </button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
   </button>
 </div>
 {{/each}}
@@ -23,16 +23,7 @@
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
   <i class="bi bi-exclamation-triangle-fill mx-2"></i>
   {{{login_error}}}
-  </button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-  </button>
-</div>
-{{/if}}
-
-{{#if error_msg}}
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <i class="bi bi-exclamation-triangle-fill mx-2"></i>
-  {{{error_msg}}}
-  </button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
   </button>
 </div>
 {{/if}}
