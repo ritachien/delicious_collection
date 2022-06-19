@@ -18,7 +18,10 @@ router.put('/', (req, res) => {
   // If no update to password
   if (!password && !confirmPassword) {
     return User.findByIdAndUpdate(id, { name })
-      .then(() => res.redirect('/account'))
+      .then(() => {
+        req.flash('success_msg', 'Update succeed!')
+        res.redirect('/account')
+      })
       .catch(err => console.log(err))
   }
 
@@ -39,7 +42,8 @@ router.put('/', (req, res) => {
           password: hash
         }))
         .then(() => {
-          res.redirect('/')
+          req.flash('success_msg', 'Update succeed!')
+          res.redirect('/account')
         })
         .catch(err => console.log(err))
     }
